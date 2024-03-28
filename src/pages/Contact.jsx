@@ -1,7 +1,10 @@
 import emailjs from "@emailjs/browser";
 import { Canvas } from "@react-three/fiber";
 import { Suspense, useRef, useState } from "react";
-
+import Style from "../components/Footer/Footer.module.css";
+import { BiLogoUpwork } from "react-icons/bi";
+import { TbBrandFiverr } from "react-icons/tb";
+import { SiFreelancer } from "react-icons/si";
 import { Fox } from "../models";
 import useAlert from "../hooks/useAlert";
 import { Alert, Loader } from "../components";
@@ -73,14 +76,46 @@ const Contact = () => {
 
   return (
     <section className="relative flex lg:flex-row flex-col max-container">
-      {/* {alert.show && <Alert {...alert} />}
+      {alert.show && <Alert {...alert} />}
 
       <div className="flex-1 min-w-[50%] flex flex-col">
-        <h1 className="sm:text-5xl text-3xl font-semibold sm:leading-snug text-slate-200 ">
+        {/* <h1 className="sm:text-5xl text-3xl font-semibold sm:leading-snug text-slate-200 ">
           Shoot A Message.
+        </h1> */}
+        <h1 className="sm:text-5xl text-4xl font-semibold sm:leading-snug text-slate-200 mt-8 sm:mt-6 ">
+          🗺 Address.
         </h1>
+        <p className="text-slate-300 text-2xl">Mirpur-2, Dhaka, Bangladesh</p>
+        <div className="mt-5">
+          <h2 className="text-slate-200 text-3xl sm:text-4xl sm:leading-snug">
+            📃Popular Marketplace to contract
+          </h2>
+          <div className="flex gap-4 text-slate-300 text-5xl mt-8">
+            <a
+              href="https://www.fiverr.com/mdaiman321/develop-blockchain-decentralized-applications-smart-contract?utm_campaign=gigs_show&utm_medium=shared&utm_source=copy_link&utm_term=1lzx24"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <TbBrandFiverr />
+            </a>
+            <a
+              href="https://www.upwork.com/freelancers/~01b5c940aaed9a0c78"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <BiLogoUpwork />
+            </a>
+            <a
+              href="https://www.freelancer.com/u/mdaiman10328"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <SiFreelancer />
+            </a>
+          </div>
+        </div>
 
-        <form
+        {/* <form
           ref={formRef}
           onSubmit={handleSubmit}
           className="w-full flex flex-col gap-7 mt-10"
@@ -136,8 +171,8 @@ const Contact = () => {
           >
             {loading ? "Sending..." : "Submit"}
           </button>
-        </form>
-      </div> */}
+        </form> */}
+      </div>
 
       {/* <div className="lg:w-1/2 w-full lg:h-auto md:h-[550px] h-[350px]">
         <div className="bg-gray-900 p-5 w-full h-full rounded-lg">
@@ -198,7 +233,7 @@ const Contact = () => {
       </div> */}
       {/*lg:w-1/2 w-full lg:h-auto md:h-[350px] h-[250px] mt-10 lg:pl-10 lg:mt-4 */}
 
-      <div className=" w-full h-auto sm:h-auto">
+      <div className=" lg:w-1/2 w-full lg:h-auto md:h-[350px] h-[250px] mt-10 lg:pl-10 lg:mt-4">
         <iframe
           className="w-full h-full rounded-xl"
           title="Google Map Location"
