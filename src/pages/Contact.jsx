@@ -82,7 +82,7 @@ const Contact = () => {
         {/* <h1 className="sm:text-5xl text-3xl font-semibold sm:leading-snug text-slate-200 ">
           Shoot A Message.
         </h1> */}
-        <h1 className="sm:text-5xl text-4xl font-semibold sm:leading-snug text-slate-200 mt-8 sm:mt-6 ">
+        <h1 className="sm:text-5xl text-4xl font-semibold sm:leading-snug text-slate-200 mt-8 sm:mt-4 ">
           🗺 Address.
         </h1>
         <p className="text-slate-300 text-2xl">Mirpur-2, Dhaka, Bangladesh</p>
