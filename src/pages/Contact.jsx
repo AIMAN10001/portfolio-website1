@@ -73,7 +73,7 @@ const Contact = () => {
 
   return (
     <section className="relative flex lg:flex-row flex-col max-container">
-      {alert.show && <Alert {...alert} />}
+      {/* {alert.show && <Alert {...alert} />}
 
       <div className="flex-1 min-w-[50%] flex flex-col">
         <h1 className="sm:text-5xl text-3xl font-semibold sm:leading-snug text-slate-200 ">
@@ -137,7 +137,7 @@ const Contact = () => {
             {loading ? "Sending..." : "Submit"}
           </button>
         </form>
-      </div>
+      </div> */}
 
       {/* <div className="lg:w-1/2 w-full lg:h-auto md:h-[550px] h-[350px]">
         <div className="bg-gray-900 p-5 w-full h-full rounded-lg">
@@ -196,8 +196,9 @@ const Contact = () => {
           </div>
         </div>
       </div> */}
+      {/*lg:w-1/2 w-full lg:h-auto md:h-[350px] h-[250px] mt-10 lg:pl-10 lg:mt-4 */}
 
-      <div className="lg:w-1/2 w-full lg:h-auto md:h-[350px] h-[250px] mt-10 lg:pl-10 lg:mt-4">
+      <div className=" w-full h-auto sm:h-auto">
         <iframe
           className="w-full h-full rounded-xl"
           title="Google Map Location"

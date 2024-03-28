@@ -42,7 +42,7 @@ const Navbar = () => {
             isActive ? "text-teal-600" : "text-white"
           }
         >
-          Contact
+          Location
         </NavLink>
       </nav>
     </header>

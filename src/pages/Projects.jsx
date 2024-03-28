@@ -44,7 +44,9 @@ const Projects = () => {
                 alt="threads"
                 className="w-[95%] pt-2 h-1/3 object-contain hoverScale rounded-lg "
               />
-              <p className="mt-2 text-slate-500">{project.description}</p>
+              <p className="mt-2 text-slate-500 text-justify">
+                {project.description}
+              </p>
               <div className="mt-5 flex items-center gap-2 font-poppins">
                 <Link
                   to={project.link}
