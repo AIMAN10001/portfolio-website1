@@ -20,6 +20,23 @@ import aiman12 from "./aiman12.jpg";
 import aiman13 from "./aiman13.jpeg";
 import aiman14 from "./aiman14.jpeg";
 
+import solanaag from "./solanaag.png";
+import ethag from "./ethag.png";
+import defiag from "./defiag.png";
+
+import aimancp from "./aimancp.jpg";
+import aimancp1 from "./aimancp1.jpg";
+import aimancp2 from "./aimancp2.jpg";
+import aimancp3 from "./aimancp3.jpg";
+import aimancp4 from "./aimancp4.jpg";
+import aimancp5 from "./aimancp5.jpg";
+import aimancp6 from "./aimancp6.jpg";
+import aimancp7 from "./aimancp7.jpeg";
+
+import nftcardgame from "./nftcardgame.png";
+import solanastaking from "./solanastaking.png";
+import cryptobot from "./cryptobot.jpeg";
+
 import api from "./api.png";
 import app from "./app.png";
 import blockchain from "./blockchain.png";
@@ -37,7 +54,50 @@ import solanai from "./solanai.png";
 import swap from "./swap.png";
 import swapspot from "./swapspot.png";
 
+import blc from "./blc.png";
+import tonb from "./tonb.png";
+import implb from "./implb.png";
+import btcb from "./btcb.png";
+import ethb from "./ethb.png";
+import solb from "./solb.png";
+import ethvsol from "./ethvsol.png";
+import cryptob from "./cryptob.png";
+import defib from "./cryptob.png";
+import nftb from "./nftb.png";
+import smcb from "./smcb.png";
+import dappb from "./dappb.png";
+import walletb from "./walletb.png";
+import daob from "./daob.png";
+
 export {
+  ethag,
+  solanaag,
+  defiag,
+  nftcardgame,
+  solanastaking,
+  cryptobot,
+  aimancp,
+  aimancp1,
+  aimancp2,
+  aimancp3,
+  aimancp4,
+  aimancp5,
+  aimancp6,
+  aimancp7,
+  tonb,
+  implb,
+  btcb,
+  ethb,
+  solb,
+  ethvsol,
+  cryptob,
+  defib,
+  nftb,
+  smcb,
+  dappb,
+  walletb,
+  daob,
+  blc,
   fx,
   nftimage,
   senzu,

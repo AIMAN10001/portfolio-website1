@@ -50,7 +50,74 @@ import nft12 from "./nft12.svg";
 import nft13 from "./nft13.svg";
 import nft14 from "./nft14.svg";
 
+import vscodez from "./vscode-z.png";
+import htmlz from "./html-z.png";
+import cssz from "./css-z.png";
+import jsz from "./js-z.png";
+import typescriptz from "./typescript-z.png";
+import dockerj from "./docker-z.png";
+import gitz from "./git-z.png";
+import githubz from "./github-z.png";
+import pythonz from "./python-z.png";
+
+import djz from "./django-z.png";
+
+import tailwindz from "./tailwind-z.png";
+import bootstrapz from "./bootstrap-z.png";
+import reactz from "./react-z.png";
+import nextz from "./next-z.png";
+import mongodbz from "./mongodb--z.png";
+import sqlz from "./sql-z.png";
+import scssz from "./sass-z.png";
+import linux from "./linux-z.png";
+
+import nodejsz from "./nodejs-z.png";
+import expressz from "./express-z.png";
+import apiz from "./api-z.png";
+import unt from "./unt.png";
+
+import solidityz from "./solidity-z.png";
+import remixz from "./remix-z.png";
+import hardhatz from "./hardhat-z.png";
+import solanaz from "./solana-z.png";
+import rustz from "./rust-z.png";
+import anchorz from "./anchor-z.png";
+import tonz from "./ton-z.png";
+import webflowz from "./webflow-z.png";
+import figmaz from "./figma-z.png";
+
 export {
+  pythonz,
+  djz,
+  vscodez,
+  htmlz,
+  cssz,
+  jsz,
+  tailwindz,
+  bootstrapz,
+  reactz,
+  nextz,
+  mongodbz,
+  sqlz,
+  nodejsz,
+  expressz,
+  typescriptz,
+  dockerj,
+  gitz,
+  githubz,
+  solanaz,
+  solidityz,
+  remixz,
+  rustz,
+  hardhatz,
+  anchorz,
+  tonz,
+  webflowz,
+  figmaz,
+  apiz,
+  scssz,
+  linux,
+  unt,
   nft10,
   nft11,
   nft12,

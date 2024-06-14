@@ -22,14 +22,22 @@
     -1rem -1rem 1rem var(--shadow-light-color);
 }
 
+.no-click {
+  cursor: default;
+}
+
+.click {
+  cursor: pointer;
+}
+
 .hoverScale {
   /* Other styles */
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .hoverScale:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 6px rgba(52, 234, 228, 0.1);
+  transform: scale(1.03);
+  box-shadow: 0 4px 6px rgba(0, 8, 8, 0.1);
   /* border: none; */
 }
 .textc {
@@ -57,7 +65,7 @@
 
 .picture {
   width: 200px;
-  height: 300px;
+  /* height: 300px; */
   border-radius: 8px;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
@@ -153,19 +161,30 @@ body:has(.card[data-color="green"]:hover) {
   }
 
   .btn {
-    @apply text-white  font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center;
-    background-color: var(--icons-color);
-    box-shadow: var(--box-shadow);
+    @apply text-white font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center custom-shadow;
+    background-color: #057979;
     transition: all 0.3s ease-in;
   }
+
   .btn:hover {
-    background-color: var(--main-bg-color);
-    border: 1px solid var(--icons-color);
-    color: var(--icons-color);
+    background-color: #05a2a2;
   }
 
   .header {
-    @apply flex justify-between items-center sm:px-16 px-8 py-4 max-w-5xl mx-auto absolute top-3 bg-transparent z-10 right-0 left-0;
+    @apply flex justify-between items-center sm:px-16 px-8 py-4 max-w-5xl mx-auto fixed top-0 sm:top-5 rounded-b-2xl bg-[#0e1013] z-10 right-0 left-0;
+    /* bg-[#00000045] */
+  }
+
+  .custom-shadow {
+    box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.25),
+      0 8px 24px 0 rgba(0, 0, 0, 0.22);
+  }
+
+  /* .custom-shadow {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+
+  .custom-shadow2 {
+    box-shadow: 0 0 5px #008080, 0 0 10px #008080;
   }
 
   .footer {
@@ -187,7 +206,7 @@ body:has(.card[data-color="green"]:hover) {
   }
 
   .cta {
-    @apply w-full flex items-center md:flex-row flex-col sm:mt-16 mt-8 gap-7;
+    @apply w-full flex items-center md:flex-row flex-col my-16 gap-7;
   }
 
   .cta-text {
@@ -315,4 +334,160 @@ body:has(.card[data-color="green"]:hover) {
   background-color: var(--main-bg-color);
   border: 1px solid var(--icons-color);
   color: var(--icons-color);
+}
+
+/* tooltip */
+
+.block-container {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip {
+  visibility: hidden;
+  width: auto;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 10px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%; /* Position the tooltip above the icon */
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%; /* Arrow at the bottom */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+.block-container:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Custom modal  */
+
+.custom-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  background: #050607;
+  box-shadow: 0 0 5px #008080, 0 0 10px #008080;
+  border: none;
+
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 800px;
+  max-height: 90%;
+  overflow-y: auto;
+}
+
+.custom-overlay {
+  background: rgba(0, 0, 0, 0.75);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* skills description  */
+
+.description-paragraph {
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 1em;
+}
+
+.description-heading {
+  color: #00bcd4;
+  font-size: 20px;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.description-list {
+  color: #cccccc;
+  margin-left: 20px;
+  margin-bottom: 1em;
+}
+
+.description-list-item {
+  margin-bottom: 0.5em;
+}
+
+.description-strong {
+  color: #ff5722;
+}
+
+/* underline  */
+
+/* Underline section */
+.underline1 {
+  position: relative;
+  display: inline-block;
+}
+
+.underline1::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  background-color: var(--icons-color);
+  bottom: 2px;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: bottom center;
+  transition: transform 0.3s ease-out, width 0.3s ease-out;
+}
+
+.underline1:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom center;
+  width: 100%;
+}
+
+/* vertical line  */
+
+.navbarverticalline {
+  content: "";
+  position: absolute;
+  height: 2rem;
+  width: 0.5px;
+  background-color: var(--icons-color);
+  justify-content: center;
+  right: calc(50% - 10%);
+}
+
+@media (max-width: 768px) {
+  .navbarverticalline {
+    display: none;
+  }
 }

@@ -1,250 +1,239 @@
-import emailjs from "@emailjs/browser";
-import { Canvas } from "@react-three/fiber";
-import { Suspense, useRef, useState } from "react";
-import Style from "../components/Footer/Footer.module.css";
 import { BiLogoUpwork } from "react-icons/bi";
 import { TbBrandFiverr } from "react-icons/tb";
 import { SiFreelancer } from "react-icons/si";
-import { Fox } from "../models";
-import useAlert from "../hooks/useAlert";
-import { Alert, Loader } from "../components";
+import {
+  FaCcVisa,
+  FaCcMastercard,
+  FaBitcoin,
+  FaLinkedin,
+  FaTwitter,
+  FaGithub,
+} from "react-icons/fa";
+import { SiPayoneer } from "react-icons/si";
+import { SiWise } from "react-icons/si";
+const testimonials = [
+  {
+    image: "https://randomuser.me/api/portraits/men/1.jpg",
+    name: "John Doe",
+    feedback:
+      "Aiman is an excellent developer who delivered our project on time and exceeded our expectations.",
+  },
+  {
+    image: "https://randomuser.me/api/portraits/women/2.jpg",
+    name: "Jane Smith",
+    feedback:
+      "Working with Aiman was a fantastic experience. He is very professional and highly skilled.",
+  },
+  {
+    image: "https://randomuser.me/api/portraits/men/3.jpg",
+    name: "Mike Johnson",
+    feedback:
+      "I highly recommend Aiman for any blockchain-related projects. His expertise is unparalleled.",
+  },
+  {
+    image: "https://randomuser.me/api/portraits/women/4.jpg",
+    name: "Emily Davis",
+    feedback:
+      "Aiman is a top-notch developer. His attention to detail and commitment to quality are impressive.",
+  },
+  {
+    image: "https://randomuser.me/api/portraits/men/5.jpg",
+    name: "Chris Brown",
+    feedback:
+      "Aiman was great to work with. He communicated effectively and delivered an outstanding product.",
+  },
+  {
+    image: "https://randomuser.me/api/portraits/women/6.jpg",
+    name: "Sarah Wilson",
+    feedback:
+      "Aiman's expertise in blockchain technology is remarkable. He delivered exactly what we needed.",
+  },
+  {
+    image: "https://randomuser.me/api/portraits/men/7.jpg",
+    name: "David Lee",
+    feedback:
+      "Aiman exceeded our expectations with his high-quality work and professional attitude.",
+  },
+  {
+    image: "https://randomuser.me/api/portraits/women/8.jpg",
+    name: "Sophia Martinez",
+    feedback:
+      "Aiman's work ethic and skill set are truly exceptional. I highly recommend him for any project.",
+  },
+];
 
 const Contact = () => {
-  const formRef = useRef();
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
-  const { alert, showAlert, hideAlert } = useAlert();
-  const [loading, setLoading] = useState(false);
-  const [currentAnimation, setCurrentAnimation] = useState("idle");
-
-  const handleChange = ({ target: { name, value } }) => {
-    setForm({ ...form, [name]: value });
-  };
-
-  const handleFocus = () => setCurrentAnimation("walk");
-  const handleBlur = () => setCurrentAnimation("idle");
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setCurrentAnimation("hit");
-
-    emailjs
-      .send(
-        import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
-        {
-          from_name: form.name,
-          to_name: "JavaScript Mastery",
-          from_email: form.email,
-          to_email: "sujata@jsmastery.pro",
-          message: form.message,
-        },
-        import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
-      )
-      .then(
-        () => {
-          setLoading(false);
-          showAlert({
-            show: true,
-            text: "Thank you for your message 😃",
-            type: "success",
-          });
-
-          setTimeout(() => {
-            hideAlert(false);
-            setCurrentAnimation("idle");
-            setForm({
-              name: "",
-              email: "",
-              message: "",
-            });
-          }, [3000]);
-        },
-        (error) => {
-          setLoading(false);
-          console.error(error);
-          setCurrentAnimation("idle");
-
-          showAlert({
-            show: true,
-            text: "I didn't receive your message 😢",
-            type: "danger",
-          });
-        }
-      );
-  };
-
   return (
-    <section className="relative flex lg:flex-row flex-col max-container">
-      {alert.show && <Alert {...alert} />}
-
-      <div className="flex-1 min-w-[50%] flex flex-col">
-        {/* <h1 className="sm:text-5xl text-3xl font-semibold sm:leading-snug text-slate-200 ">
-          Shoot A Message.
-        </h1> */}
-        <h1 className="sm:text-5xl text-4xl font-semibold sm:leading-snug text-slate-200 mt-8 sm:mt-4 ">
-          🗺 Address.
+    <section className="relative flex flex-col max-container">
+      <div className="bg-gradient-to-r from-[#05a2a2c8] to-[#046951f0] custom-shadow py-12 px-8 mt-4 mb-10 rounded-lg">
+        <h1 className="head-text">
+          Ready to{" "}
+          <span className="text-black-500 drop-shadow font-semibold">
+            Collaborate?
+          </span>
         </h1>
-        <p className="text-slate-300 text-2xl">Mirpur-2, Dhaka, Bangladesh</p>
-        <div className="mt-5">
-          <h2 className="text-slate-200 text-3xl sm:text-4xl sm:leading-snug">
-            📃Popular Marketplace to contract
-          </h2>
-          <div className="flex gap-4 text-slate-300 text-5xl mt-8">
-            <a
-              href="https://www.fiverr.com/mdaiman321/develop-blockchain-decentralized-applications-smart-contract?utm_campaign=gigs_show&utm_medium=shared&utm_source=copy_link&utm_term=1lzx24"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <TbBrandFiverr />
-            </a>
-            <a
-              href="https://www.upwork.com/freelancers/~01b5c940aaed9a0c78"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <BiLogoUpwork />
-            </a>
-            <a
-              href="https://www.freelancer.com/u/mdaiman10328"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <SiFreelancer />
-            </a>
-          </div>
-        </div>
 
-        {/* <form
-          ref={formRef}
-          onSubmit={handleSubmit}
-          className="w-full flex flex-col gap-7 mt-10"
-        >
-          <label className="text-slate-300 font-semibold">
-            Name
-            <input
-              type="text"
-              name="name"
-              className="input"
-              placeholder="John"
-              required
-              value={form.name}
-              onChange={handleChange}
-              onFocus={handleFocus}
-              onBlur={handleBlur}
-            />
-          </label>
-          <label className="text-slate-300 font-semibold">
-            Email
-            <input
-              type="email"
-              name="email"
-              className="input"
-              placeholder="John@gmail.com"
-              required
-              value={form.email}
-              onChange={handleChange}
-              onFocus={handleFocus}
-              onBlur={handleBlur}
-            />
-          </label>
-          <label className="text-slate-300 font-semibold">
-            Your Message
-            <textarea
-              name="message"
-              rows="4"
-              className="textarea"
-              placeholder="Write your thoughts here..."
-              value={form.message}
-              onChange={handleChange}
-              onFocus={handleFocus}
-              onBlur={handleBlur}
-            />
-          </label>
-
-          <button
-            type="submit"
-            disabled={loading}
-            className="btn"
-            onFocus={handleFocus}
-            onBlur={handleBlur}
-          >
-            {loading ? "Sending..." : "Submit"}
-          </button>
-        </form> */}
+        <p className="text-slate-800 mt-2 leading-relaxed">
+          Let's bring your ideas to life! Whether it's blockchain solutions,
+          smart contract audit, or dApps, I'm here to help. With expertise in
+          web3.0 and experience of high-quality projects, I'm ready to complete
+          your challenges.
+        </p>
       </div>
 
-      {/* <div className="lg:w-1/2 w-full lg:h-auto md:h-[550px] h-[350px]">
-        <div className="bg-gray-900 p-5 w-full h-full rounded-lg">
-          <h2 className="text-2xl font-semibold text-white mb-4">
-            Contact Information
-          </h2>
-          <div className="flex items-center mb-4">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6 mr-2 text-slate-300"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                fillRule="evenodd"
-                d="M10 2a8 8 0 100 16 8 8 0 000-16zM9 4a1 1 0 011 1v3a1 1 0 11-2 0V5a1 1 0 011-1zm0 8a1 1 0 100 2 1 1 0 000-2z"
-                clipRule="evenodd"
-              />
-            </svg>
-            <span className="text-slate-300">Your Address Here</span>
+      <div className="flex flex-col space-y-10">
+        {/* Address Section */}
+        <div className="flex-1 min-w-[50%] flex flex-col custom-shadow px-8 py-8 rounded-lg custom-shadow bg-[#161a1e] border-x-2 border-[#008080]">
+          <div className="mt-8 p-8 custom-shadow  hover:custom-shadow transition duration-300 hoverScale rounded-lg">
+            <h3 className="text-slate-200 text-3xl sm:text-4xl sm:leading-snug">
+              Address.🗺
+            </h3>
+            <p className="text-slate-300 text-2xl mt-4">
+              Road # 02, Block # B, Section # 02, Rupnagar, Rupnagar-MIRPUR,
+              Dhaka, Bangladesh
+            </p>
           </div>
-          <div className="flex items-center mb-4">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6 mr-2 text-slate-300"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                fillRule="evenodd"
-                d="M10 2a8 8 0 100 16 8 8 0 000-16zM9 4a1 1 0 011 1v3a1 1 0 11-2 0V5a1 1 0 011-1zm0 8a1 1 0 100 2 1 1 0 000-2z"
-                clipRule="evenodd"
-              />
-            </svg>
-            <span className="text-slate-300">Your Email Address Here</span>
+
+          <div className="mt-10 p-8 custom-shadow2 hover:custom-shadow2 transition duration-300 hoverScale rounded-lg">
+            <h2 className="text-slate-200 text-3xl sm:text-4xl sm:leading-snug">
+              Sign A Contract Via.
+            </h2>
+            <div className="flex gap-6 py-2 text-[#05a2a2c8] rounded-full bg-transparent text-[#008080] justify-center custom-shadow items-center text-4xl mt-8">
+              <a
+                href="https://www.fiverr.com/mdaiman321?source=gig_page"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full bg-transparent p-2 hover:bg-[#008080] text-[#008080] hover:text-[#0E1013] transition duration-300 justify-center hover:custom-shadow2 items-center border border-[#008080]"
+              >
+                <TbBrandFiverr />
+              </a>
+              <a
+                href="https://www.upwork.com/freelancers/~01b5c940aaed9a0c78"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full bg-transparent p-2 hover:bg-[#008080] text-[#008080] hover:text-[#0E1013] transition duration-300 justify-center hover:custom-shadow2 items-center border border-[#008080]"
+              >
+                <BiLogoUpwork />
+              </a>
+              <a
+                href="https://www.freelancer.com/u/mdaiman10328"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full bg-transparent p-2 hover:bg-[#008080] text-[#008080] hover:text-[#0E1013] transition duration-300 justify-center hover:custom-shadow2 items-center border border-[#008080]"
+              >
+                <SiFreelancer />
+              </a>
+            </div>
           </div>
-          <div className="flex items-center mb-4">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6 mr-2 text-slate-300"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                fillRule="evenodd"
-                d="M10 2a8 8 0 100 16 8 8 0 000-16zM9 4a1 1 0 011 1v3a1 1 0 11-2 0V5a1 1 0 011-1zm0 8a1 1 0 100 2 1 1 0 000-2z"
-                clipRule="evenodd"
-              />
-            </svg>
-            <span className="text-slate-300">Your Phone Number Here</span>
+
+          <div className="mt-10 p-8 custom-shadow  hover:custom-shadow transition duration-300 hoverScale rounded-lg">
+            <h3 className="text-slate-200 text-3xl font-semibold mb-4">
+              Payment Methods
+            </h3>
+            <div className="flex flex-wrap gap-6 text-slate-300 text-2xl">
+              <div className="flex items-center gap-2">
+                <FaCcVisa className="text-slate-300 text-4xl" />
+                <span>Visa</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <FaCcMastercard className="text-slate-300 text-4xl" />
+                <span>MasterCard</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <SiPayoneer className="text-slate-300 text-4xl" />
+                <span>Payoneer</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <SiWise className="text-slate-300 text-4xl" />
+                <span>Wise</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <FaBitcoin className="text-slate-300 text-4xl" />
+                <span>Crypto</span>
+              </div>
+            </div>
           </div>
-          <div className="border-t border-gray-700 pt-4">
-            <p className="text-sm text-gray-500">
-              For inquiries, please feel free to contact us!
+
+          <div className="mt-10 mb-8 p-8 custom-shadow rounded-lg hover:custom-shadow transition duration-300 hoverScale">
+            <h3 className="text-slate-200 text-3xl font-semibold mb-4">
+              Business Hours
+            </h3>
+            <p className="text-slate-300 text-2xl">
+              Mon - Thu: 8 AM - 6 PM
+              <span className="hidden md:inline text-[#008080] font-extrabold">
+                {" "}
+                |{" "}
+              </span>
+              <span className="block md:hidden">
+                <br />
+              </span>
+              Fri: 10 AM - 4 PM
+              <span className="hidden md:inline text-[#008080] font-extrabold">
+                {" "}
+                |{" "}
+              </span>
+              <span className="block md:hidden">
+                <br />
+              </span>
+              Sun: Closed
             </p>
           </div>
         </div>
-      </div> */}
-      {/*lg:w-1/2 w-full lg:h-auto md:h-[350px] h-[250px] mt-10 lg:pl-10 lg:mt-4 */}
 
-      <div className=" lg:w-1/2 w-full lg:h-auto md:h-[350px] h-[250px] mt-10 lg:pl-10 lg:mt-4">
-        <iframe
-          className="w-full h-full rounded-xl"
-          title="Google Map Location"
-          width="100%"
-          height="100%"
-          frameBorder="0"
-          style={{ borderColor: "#008080" }}
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7294.11436700108!2d90.36900855604562!3d23.808330684157504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b931dbf1d437%3A0xb88a6e74a1a6b18b!2sMirpur%202!5e0!3m2!1sen!2sbd!4v1648281362282!5m2!1sen!2sbd"
-          allowFullScreen
-        ></iframe>
+        {/* Map Section */}
+        <div className="w-full">
+          <iframe
+            className="w-full h-96 rounded-lg custom-shadow"
+            title="Google Map Location"
+            frameBorder="0"
+            style={{ borderColor: "#008080" }}
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7294.11436700108!2d90.36900855604562!3d23.808330684157504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b931dbf1d437%3A0xb88a6e74a1a6b18b!2sMirpur%202!5e0!3m2!1sen!2sbd!4v1648281362282!5m2!1sen!2sbd"
+            allowFullScreen
+          ></iframe>
+        </div>
       </div>
+
+      {/* Testimonials Section */}
+      <div className="w-full mt-16 p-8 rounded-lg custom-shadow bg-[#161a1e] border-x-2 border-[#008080]">
+        <h3 className="text-slate-200 flex mt-2 mb-8 text-3xl font-semibold">
+          Some Professionals' Opinion
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {testimonials.map((testimonial, index) => (
+            <div
+              key={index}
+              className="flex bg-[#191d22] flex-col items-center border border-[#00808032] custom-shadow p-6 rounded-lg hover:custom-shadow2 transition duration-300 hoverScale"
+            >
+              <img
+                src={testimonial.image}
+                alt={testimonial.name}
+                className="w-16 h-16 rounded-full mb-4"
+              />
+              <h4 className="text-xl text-slate-200 font-semibold mb-2">
+                {testimonial.name}
+              </h4>
+              <p className="text-slate-400 text-center">
+                "{testimonial.feedback}"
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <hr
+        className="border-slate-200 border mt-8"
+        style={{ borderColor: "var(--icons-color)" }}
+      />
+
+      <section className="cta bg-gradient-to-r from-[#05a2a2c8] to-[#046951f0] py-16 px-8 rounded-lg">
+        <p className="cta-text flex items-center justify-center ">
+          Dreaming to connect this era with the real world of Web3.
+        </p>
+      </section>
+      <hr
+        className="border-slate-200 border"
+        style={{ borderColor: "var(--icons-color)" }}
+      />
     </section>
   );
 };
